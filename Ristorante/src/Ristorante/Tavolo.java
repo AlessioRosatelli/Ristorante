@@ -1,40 +1,15 @@
 package Ristorante;
 
 public class Tavolo {
-<<<<<<< HEAD
-
-	private int numero;
-	private String tipo;
-	
-	public Tavolo(int numero) {
-		this.numero=numero;
-	}
-	
-	public int getNumero() {
-		return this.numero;
-	}
-	
-	public void setNumero(int numero) {
-		this.numero=numero;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-=======
 	
 	private int numero;
-	private String tipo;
+	private boolean isVip;
 	private boolean occupato;
 	
-	public Tavolo(int numero,String tipo) {
+	public Tavolo(int numero,boolean isVip) {
 		this.numero=numero;
-		this.tipo=tipo;
-	}
+		this.isVip=isVip;
+		}
 	
 	public int getNumero() {
 		return numero;
@@ -42,11 +17,11 @@ public class Tavolo {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getTipo() {
-		return tipo;
+	public boolean isVip() {
+		return isVip;
 	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipo(boolean isVip) {
+		this.isVip=isVip;
 	}
 	public boolean isOccupato() {
 		return occupato;
@@ -54,7 +29,5 @@ public class Tavolo {
 	public void setOccupato(boolean occupato) {
 		this.occupato = occupato;
 	}
-	
 
->>>>>>> Alessio
 }

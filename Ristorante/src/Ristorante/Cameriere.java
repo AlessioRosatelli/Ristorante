@@ -1,7 +1,6 @@
 package Ristorante;
 
 public class Cameriere {
-<<<<<<< HEAD
 
 	private String nome;
 	private String cognome;
@@ -10,17 +9,6 @@ public class Cameriere {
 		this.nome=nome;
 		this.cognome=cognome;
 	}
-	
-	public String getNome() {
-		return this.nome;
-	}
-	
-	public String getCognome() {
-		return this.cognome;
-	}
-=======
-	private String nome;
-	private String cognome;
 	
 	public String getNome() {
 		return nome;
@@ -35,7 +23,4 @@ public class Cameriere {
 		this.cognome = cognome;
 	}
 	
-	
-
->>>>>>> Alessio
 }

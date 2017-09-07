@@ -3,14 +3,18 @@ package Ristorante;
 import java.util.Date;
 
 public class Ordinazione {
+	
 	private Date data;
 	private String prodotti;
 	private Tavolo tavolo;
+	private boolean inCorso;
 	
 	public Ordinazione(Date data,String prodotti,Tavolo tavolo) {
 		this.setData(data);
 		this.setProdotti(prodotti);
 		this.setTavolo(tavolo);
+		this.setInCorso(true);
+		this.tavolo.setOccupato(true);
 	}
 
 	public Date getData() {
@@ -35,6 +39,14 @@ public class Ordinazione {
 
 	public void setTavolo(Tavolo tavolo) {
 		this.tavolo = tavolo;
+	}
+
+	public boolean isInCorso() {
+		return inCorso;
+	}
+
+	public void setInCorso(boolean inCorso) {
+		this.inCorso = inCorso;
 	}
 
 }
