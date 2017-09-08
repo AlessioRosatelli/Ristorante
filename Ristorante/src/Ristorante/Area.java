@@ -2,12 +2,12 @@ package Ristorante;
 
 import java.util.LinkedList;
 
-public class Area {
+public class Area implements IArea {
 
 
 	private String nome;
-	private LinkedList<Area> sottoAree= new LinkedList<Area>();
-	private LinkedList<Stanza> stanze= new LinkedList<Stanza>();
+	private LinkedList<IArea> sottoAree= new LinkedList<IArea>();
+	
 	
 	public Area(String nome) {
 		this.nome=nome;
@@ -19,26 +19,19 @@ public class Area {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public LinkedList<Area> getSottoAree() {
+	public LinkedList<IArea> getSottoAree() {
 		return sottoAree;
 	}
-	public void addSottoArea(Area a) {
+	public void addSottoArea(IArea a) {
 		this.sottoAree.add(a);
 	}
-	public LinkedList<Stanza> getStanze() {
-		return stanze;
-	}
-	public void addStanza(Stanza t) {
-		this.stanze.add(t);
-	}
+	
 
 	public LinkedList<Tavolo> getTavoli(){
 		LinkedList<Tavolo> tavoli = new LinkedList<Tavolo>();
-		for (Area a:this.sottoAree)
+		for (IArea a:this.sottoAree)
 			tavoli.addAll(a.getTavoli());
-		for (Stanza s:this.stanze)
-			tavoli.addAll(s.getTavoli());
-		return tavoli; 
+		return tavoli;
 	}
 	
 }

@@ -2,7 +2,7 @@ package Ristorante;
 
 import java.util.LinkedList;
 
-public class Stanza {
+public class Stanza implements IArea {
 	
 	private int numero;
 	private LinkedList<Tavolo> tavoli= new LinkedList<Tavolo>();
