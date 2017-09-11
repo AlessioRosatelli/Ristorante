@@ -2,6 +2,6 @@ package Ristorante;
 
 public interface IObsTavolo {
 	
-	public void update( Tavolo t);
+	public void update( TavoloAbs t );
 
 }

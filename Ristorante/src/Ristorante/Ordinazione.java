@@ -6,10 +6,10 @@ public class Ordinazione {
 	
 	private Date data;
 	private String prodotti;
-	private Tavolo tavolo;
+	private TavoloAbs tavolo;
 	private boolean inCorso;
 	
-	public Ordinazione(Date data,String prodotti,Tavolo tavolo) {
+	public Ordinazione(Date data,String prodotti,TavoloAbs tavolo) {
 		this.setData(data);
 		this.setProdotti(prodotti);
 		this.setTavolo(tavolo);
@@ -33,11 +33,11 @@ public class Ordinazione {
 		this.prodotti = prodotti;
 	}
 
-	public Tavolo getTavolo() {
+	public TavoloAbs getTavolo() {
 		return tavolo;
 	}
 
-	public void setTavolo(Tavolo tavolo) {
+	public void setTavolo(TavoloAbs tavolo) {
 		this.tavolo = tavolo;
 	}
 

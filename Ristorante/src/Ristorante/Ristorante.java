@@ -34,7 +34,7 @@ public class Ristorante {
 	
 	
 	
-	public void nuovoTavolo(Tavolo tavolo, Stanza stanza) {
+	public void nuovoTavolo(TavoloAbs tavolo, Stanza stanza) {
 		stanza.addTavolo(tavolo);
 	}
 	
@@ -59,8 +59,8 @@ public class Ristorante {
 	
 	public int tavoliLiber() {
 		int liberi = 0;
-		LinkedList<Tavolo> tavoli = this.getTavoli();
-		for (Tavolo t:tavoli)
+		LinkedList<TavoloAbs> tavoli = this.getTavoli();
+		for (TavoloAbs t:tavoli)
 			if(!t.isOccupato())
 				liberi++;
 		return liberi;
@@ -68,39 +68,38 @@ public class Ristorante {
 	
 	public int tavoliInArea(Area area) {
 		int liberi = 0;
-		LinkedList<Tavolo> tavoli = area.getTavoli();
-		for (Tavolo t: tavoli)
+		LinkedList<TavoloAbs> tavoli = area.getTavoli();
+		for (TavoloAbs t: tavoli)
 			if (!t.isOccupato())
 				liberi++;
 		return liberi;
 	}
 	
 	public double rendimento() {
+		
 		double rendimento = 0;
-		LinkedList<Tavolo> tavoli = this.getTavoli();
-		for (Tavolo t:tavoli)
-			if(t.isVip())
-				rendimento+=2;
-			else
-				rendimento+=1;
+		for (Ordinazione ord:this.ordinazioni) {
+			Contatore c = new Contatore();
+			IOperazioneSuTavolo op = new RendimentoTavolo(c);
+			ord.getTavolo().eseguiOperazione(op);
+			rendimento += c.getValore();
+		}
 		return rendimento;
 	}
 	
 	public boolean preferenzaTavoliVipUltimaSettimana() {
-		int vip = 0;
-		int base = 0;
+		Contatore vip = new Contatore();
+		Contatore base = new Contatore();
+		IOperazioneSuTavolo op = new DistinguiTavolo(base,vip);
 		Date settimanaFa = new Date( new Date().getTime() - 7*24*3600 );
 		for (Ordinazione ord:this.ordinazioni)
 			if (ord.getData().after(settimanaFa))
-				if (ord.getTavolo().isVip())
-					vip++;
-				else
-					base++;
-		return vip>=base;
+				ord.getTavolo().eseguiOperazione(op);
+		return vip.getValore()>=base.getValore();
 	}
 	
-	public LinkedList<Tavolo> getTavoli(){
-		LinkedList<Tavolo> tavoli = new LinkedList<Tavolo>();
+	public LinkedList<TavoloAbs> getTavoli(){
+		LinkedList<TavoloAbs> tavoli = new LinkedList<TavoloAbs>();
 		for (Area a:this.listaAree)
 			tavoli.addAll(a.getTavoli());
 		return tavoli;	
@@ -180,7 +179,7 @@ public class Ristorante {
 		this.obsTavoli.add(obs);
 	}
 	
-	public void notifyAll(Tavolo t) {
+	public void notifyAll(TavoloAbs t) {
 		for(IObsTavolo obs : this.obsTavoli)
 			obs.update(t);
 	}

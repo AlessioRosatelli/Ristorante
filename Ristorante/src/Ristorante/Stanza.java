@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Stanza implements IArea {
 	
 	private int numero;
-	private LinkedList<Tavolo> tavoli= new LinkedList<Tavolo>();
+	private LinkedList<TavoloAbs> tavoli= new LinkedList<TavoloAbs>();
 		
 	public Stanza(int numero) {
 		this.numero = numero;
@@ -17,10 +17,10 @@ public class Stanza implements IArea {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public LinkedList<Tavolo> getTavoli() {
+	public LinkedList<TavoloAbs> getTavoli() {
 		return tavoli;
 	}
-	public void addTavolo(Tavolo t) {
+	public void addTavolo(TavoloAbs t) {
 		this.tavoli.add(t);
 	}
 

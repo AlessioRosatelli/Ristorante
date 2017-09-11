@@ -27,8 +27,8 @@ public class Area implements IArea {
 	}
 	
 
-	public LinkedList<Tavolo> getTavoli(){
-		LinkedList<Tavolo> tavoli = new LinkedList<Tavolo>();
+	public LinkedList<TavoloAbs> getTavoli(){
+		LinkedList<TavoloAbs> tavoli = new LinkedList<TavoloAbs>();
 		for (IArea a:this.sottoAree)
 			tavoli.addAll(a.getTavoli());
 		return tavoli;
