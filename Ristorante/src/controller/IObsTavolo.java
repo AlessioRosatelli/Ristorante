@@ -1,4 +1,6 @@
-package Ristorante;
+package controller;
+
+import model.TavoloAbs;
 
 public interface IObsTavolo {
 	

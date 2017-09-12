@@ -1,4 +1,4 @@
-package Ristorante;
+package model;
 
 public class Contatore {
 

@@ -1,4 +1,8 @@
-package Ristorante;
+package controller;
+
+import model.Contatore;
+import model.TavoloBase;
+import model.TavoloVip;
 
 public class RendimentoTavolo implements IOperazioneSuTavolo {
 

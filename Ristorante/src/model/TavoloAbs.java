@@ -1,4 +1,6 @@
-package Ristorante;
+package model;
+
+import controller.IOperazioneSuTavolo;
 
 public abstract class TavoloAbs {
 	

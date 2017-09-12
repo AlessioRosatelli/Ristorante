@@ -1,4 +1,7 @@
-package Ristorante;
+package controller;
+
+import model.TavoloBase;
+import model.TavoloVip;
 
 public interface IOperazioneSuTavolo {
 

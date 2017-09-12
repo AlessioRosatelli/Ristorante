@@ -1,4 +1,6 @@
-package Ristorante;
+package model;
+
+import controller.IOperazioneSuTavolo;
 
 public class TavoloVip extends TavoloAbs {
 

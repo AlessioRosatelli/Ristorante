@@ -1,4 +1,4 @@
-package Ristorante;
+package model;
 
 import java.util.LinkedList;
 
