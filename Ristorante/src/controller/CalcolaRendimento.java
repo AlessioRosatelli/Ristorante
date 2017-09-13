@@ -1,6 +1,5 @@
 package controller;
 
-import model.Contatore;
 import model.Ordinazione;
 import model.Ristorante;
 
@@ -14,7 +13,7 @@ public class CalcolaRendimento implements IOperazioneRistorante {
 	
 
 	@Override
-	public void applicaOp(Ristorante r) {
+	public void applicaOperazione(Ristorante r) {
 		IOperazioneSuTavolo op = new RendimentoTavolo(this.c);
 		for (Ordinazione ord:r.getOrdinazioni()) {
 			ord.getTavolo().eseguiOperazione(op);
