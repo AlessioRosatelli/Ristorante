@@ -26,8 +26,10 @@ public class Ristorante {
 		this.setDirettore(direttore);
 	}
 	
-	public void nuovaArea(String nomeArea) {
-		this.listaAree.add(new Area(nomeArea));
+	public Area nuovaArea(String nomeArea) {
+		Area areaNuova = new Area(nomeArea);
+		this.listaAree.add(areaNuova);
+		return areaNuova;
 	}
 	
 	public Area nuovaSottoArea(String nomeArea, Area areaPadre) {
@@ -42,12 +44,16 @@ public class Ristorante {
 		return stanza;
 	}
 	
-	public void nuovoTavoloVip(int numero, Stanza stanza) {
-		stanza.nuovoTavolo(new TavoloVip(numero));
+	public TavoloVip nuovoTavoloVip(int numero, Stanza stanza) {
+		TavoloVip tavolo = new TavoloVip(numero);
+		stanza.nuovoTavolo(tavolo);
+		return tavolo;
 	}
 	
-	public void nuovoTavoloBase(int numero, Stanza stanza) {
-		stanza.nuovoTavolo(new TavoloBase(numero));
+	public TavoloBase nuovoTavoloBase(int numero, Stanza stanza) {
+		TavoloBase tavolo = new TavoloBase(numero);
+		stanza.nuovoTavolo(tavolo);
+		return tavolo;
 	}
 	
 	public Ordinazione nuovaOrdinazione(Date data, String prodotti, TavoloAbs tavolo) {
