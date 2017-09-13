@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Date;
 import java.util.LinkedList;
 
 import controller.*;
@@ -25,23 +26,35 @@ public class Ristorante {
 		this.setDirettore(direttore);
 	}
 	
-	public void nuovaArea(Area area) {
-		this.listaAree.add(area);
+	public void nuovaArea(String nomeArea) {
+		this.listaAree.add(new Area(nomeArea));
 	}
 	
-	public void nuovaSottoAreaStanza(IArea areaNuova, Area areaPadre) {
-		areaPadre.addSottoArea(areaNuova);
+	public Area nuovaSottoArea(String nomeArea, Area areaPadre) {
+		Area areaNuova = new Area(nomeArea);
+		areaPadre.nuovaSottoIArea(areaNuova);
+		return areaNuova;
 	}
 	
-	
-	
-	public void nuovoTavolo(TavoloAbs tavolo, Stanza stanza) {
-		stanza.addTavolo(tavolo);
+	public Stanza nuovaStanza(int numeroStanza, Area areaPadre) {
+		Stanza stanza = new Stanza(numeroStanza);
+		areaPadre.nuovaSottoIArea(stanza);
+		return stanza;
 	}
 	
-	public void nuovaOrdinazione(Ordinazione ordinazione) {
+	public void nuovoTavoloVip(int numero, Stanza stanza) {
+		stanza.nuovoTavolo(new TavoloVip(numero));
+	}
+	
+	public void nuovoTavoloBase(int numero, Stanza stanza) {
+		stanza.nuovoTavolo(new TavoloBase(numero));
+	}
+	
+	public Ordinazione nuovaOrdinazione(Date data, String prodotti, TavoloAbs tavolo) {
+		Ordinazione ordinazione = new Ordinazione(data, prodotti, tavolo);
 		this.ordinazioni.add(ordinazione);
 		this.notifyAll(ordinazione);
+		return ordinazione;
 	}
 	
 	public void concludiOrdinazione(Ordinazione ordinazione) {
@@ -49,13 +62,6 @@ public class Ristorante {
 		ordinazione.getTavolo().setOccupato(false);
 		this.notifyAll(ordinazione.getTavolo());
 	}
-
-	
-	public void eseguiOp(IOperazioneRistorante op) {
-		op.applicaOp(this);
-	}
-	
-
 	
 	public LinkedList<TavoloAbs> getTavoli(){
 		LinkedList<TavoloAbs> tavoli = new LinkedList<TavoloAbs>();
@@ -64,6 +70,52 @@ public class Ristorante {
 		return tavoli;	
 	}
 
+	public Cameriere nuovoCameriere(String nome, String cognome){
+		Cameriere cameriere = new Cameriere(nome, cognome);
+		this.camerieri.add(cameriere);
+		return cameriere;
+	}
+	
+	private void eseguiOperazione(IOperazioneRistorante op) {
+		op.applicaOperazione(this);
+	}
+	
+	public int ordinazioniInCorso() {
+		Contatore c= new Contatore();
+		IOperazioneRistorante op= new CalcolaOrdinazioniInCorso(c);
+		eseguiOperazione(op);
+		return c.getValore();
+	}
+	
+	public int tavoliLiberiArea(IArea a) {
+		Contatore c= new Contatore();
+		IOperazioneRistorante op = new CalcolaTavoliLiberiArea(c, a);
+		eseguiOperazione(op);
+		return c.getValore();
+	}
+	
+	public int tavoliLiberiRistorante() {
+		Contatore c = new Contatore();
+		IOperazioneRistorante op = new CalcolaTavoliLiberiRisto(c);
+		eseguiOperazione(op);
+		return c.getValore();
+	}
+	
+	public int calcolaRendimentoUltimaSettimana() {
+		Contatore c= new Contatore();
+		IOperazioneRistorante op= new CalcolaRendimento(c);
+		eseguiOperazione(op);
+		return c.getValore();
+	}
+	
+	public boolean preferenzaVip() {
+		Contatore base =  new Contatore();
+		Contatore vip = new Contatore();
+		IOperazioneRistorante op = new PreferenzaVip(base, vip);
+		eseguiOperazione(op);
+		return vip.getValore()>=base.getValore();
+	}
+	
 	public String getIndirizzo() {
 		return indirizzo;
 	}
@@ -103,12 +155,6 @@ public class Ristorante {
 	public void setDirettore(String direttore) {
 		this.direttore = direttore;
 	}
-	
-	public Cameriere addCameriere(String nome, String cognome){
-		Cameriere cameriere = new Cameriere(nome, cognome);
-		this.camerieri.add(cameriere);
-		return cameriere;
-	}
 		
 	public LinkedList<Cameriere> getListaCamerieri(){
 		return this.camerieri;
@@ -130,7 +176,7 @@ public class Ristorante {
 		return obsOrdinazioni;
 	}
 
-	public void addObsOrd(IObsOrd obs) {
+	public void nuovoObsOrd(IObsOrd obs) {
 		this.obsOrdinazioni.add(obs);
 	}
 
@@ -138,7 +184,7 @@ public class Ristorante {
 		return obsTavoli;
 	}
 
-	public void addObsTavolo(IObsTavolo obs) {
+	public void nuovoObsTavolo(IObsTavolo obs) {
 		this.obsTavoli.add(obs);
 	}
 	

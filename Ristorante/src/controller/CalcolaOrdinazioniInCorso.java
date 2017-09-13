@@ -1,6 +1,5 @@
 package controller;
 
-import model.Contatore;
 import model.Ordinazione;
 import model.Ristorante;
 
@@ -13,7 +12,7 @@ public class CalcolaOrdinazioniInCorso implements IOperazioneRistorante {
 	}
 	
 	@Override
-	public void applicaOp(Ristorante r) {
+	public void applicaOperazione(Ristorante r) {
 		for (Ordinazione ord:r.getOrdinazioni())
 			if (ord.isInCorso())
 				c.incrementa(1);

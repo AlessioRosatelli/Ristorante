@@ -16,13 +16,16 @@ public class Area implements IArea {
 	public String getNome() {
 		return nome;
 	}
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public LinkedList<IArea> getSottoAree() {
 		return sottoAree;
 	}
-	public void addSottoArea(IArea a) {
+	
+	public void nuovaSottoIArea(IArea a) {
 		this.sottoAree.add(a);
 	}
 	

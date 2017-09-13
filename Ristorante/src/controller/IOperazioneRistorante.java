@@ -4,5 +4,5 @@ import model.*;
 
 public interface IOperazioneRistorante {
 
-	public void applicaOp(Ristorante r);
+	public void applicaOperazione(Ristorante r);
 }

@@ -17,12 +17,15 @@ public abstract class TavoloAbs {
 	public int getNumero() {
 		return numero;
 	}
+	
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	
 	public boolean isOccupato() {
 		return occupato;
 	}
+	
 	public void setOccupato(boolean occupato) {
 		this.occupato = occupato;
 	}
