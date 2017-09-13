@@ -3,11 +3,16 @@ package model;
 import java.util.Date;
 import java.util.LinkedList;
 
+import controller.CalcolaOrdinazioniInCorso;
+import controller.CalcolaRendimento;
+import controller.CalcolaTavoliLiberiArea;
+import controller.CalcolaTavoliLiberiRisto;
 import controller.DistinguiTavolo;
 import controller.IObsOrd;
 import controller.IObsTavolo;
 import controller.IOperazioneRistorante;
 import controller.IOperazioneSuTavolo;
+import controller.PreferenzaVip;
 import controller.RendimentoTavolo;
 
 public class Ristorante {
@@ -57,8 +62,45 @@ public class Ristorante {
 	}
 
 	
-	public void eseguiOp(IOperazioneRistorante op) {
+	private void eseguiOp(IOperazioneRistorante op) {
 		op.applicaOp(this);
+	}
+	
+	
+	public int ordinazioniInCorso() {
+		Contatore c= new Contatore();
+		CalcolaOrdinazioniInCorso op= new CalcolaOrdinazioniInCorso(c);
+		eseguiOp(op);
+		return c.getValore();
+	}
+	
+	public int tavoliLiberiArea(IArea a) {
+		Contatore c= new Contatore();
+		CalcolaTavoliLiberiArea op = new CalcolaTavoliLiberiArea(c, a);
+		eseguiOp(op);
+		return c.getValore();
+	}
+	
+	public int tavoliLiberiRisto() {
+		Contatore c = new Contatore();
+		CalcolaTavoliLiberiRisto op = new CalcolaTavoliLiberiRisto(c);
+		eseguiOp(op);
+		return c.getValore();
+	}
+	
+	public int calcolaRendimentoUltimaSettimana() {
+		Contatore c= new Contatore();
+		CalcolaRendimento op= new CalcolaRendimento(c);
+		eseguiOp(op);
+		return c.getValore();
+	}
+	
+	public boolean preferenzaVip() {
+		Contatore base =  new Contatore();
+		Contatore vip = new Contatore();
+		PreferenzaVip op = new PreferenzaVip(base, vip);
+		eseguiOp(op);
+		return op.getPreferenzaVip();
 	}
 	
 
