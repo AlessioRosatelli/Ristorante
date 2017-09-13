@@ -1,14 +1,8 @@
 package model;
 
-import java.util.Date;
 import java.util.LinkedList;
 
-import controller.DistinguiTavolo;
-import controller.IObsOrd;
-import controller.IObsTavolo;
-import controller.IOperazioneRistorante;
-import controller.IOperazioneSuTavolo;
-import controller.RendimentoTavolo;
+import controller.*;
 
 public class Ristorante {
 

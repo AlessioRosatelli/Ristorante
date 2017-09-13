@@ -48,10 +48,5 @@ public class Ordinazione {
 	public void setInCorso(boolean inCorso) {
 		this.inCorso = inCorso;
 	}
-	
-	public boolean ultimaSettimana() {
-		Date settimanaFa = new Date( new Date().getTime() - 7*24*3600 );
-		return this.getData().after(settimanaFa);
-	}
 
 }
