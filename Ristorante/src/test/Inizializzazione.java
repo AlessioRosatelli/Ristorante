@@ -1,7 +1,6 @@
 package test;
 
 import model.*;
-import controller.*;
 
 import java.util.Date;
 
@@ -20,7 +19,7 @@ public class Inizializzazione {
 	public Area area12 = ristorante.nuovaSottoArea("area12", area1);
 	public Area area13 = ristorante.nuovaSottoArea("area13", area1);
 	public Area area21 = ristorante.nuovaSottoArea("area21", area2);
-	public Area area22 = ristorante.nuovaSottoArea("area22", area1);
+	public Area area22 = ristorante.nuovaSottoArea("area22", area2);
 	
 	public Stanza stanza1 = ristorante.nuovaStanza(1, area1);
 	public Stanza stanza11 = ristorante.nuovaStanza(2, area11);
@@ -65,8 +64,8 @@ public class Inizializzazione {
 	
 	public Cameriere cameriere1 = ristorante.nuovoCameriere("Prova", "Prova");
 	
-	public IObsTavolo obsTavolo1 = new ObsTavoloTest();
-	public IObsOrd obsOrd1 = new ObsOrdinazioneTest();
+	public ObsTavoloTest obsTavolo1 = new ObsTavoloTest();
+	public ObsOrdinazioneTest obsOrd1 = new ObsOrdinazioneTest();
 	
 	
 	public void setUp() {

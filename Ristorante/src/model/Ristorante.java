@@ -107,7 +107,7 @@ public class Ristorante {
 		return c.getValore();
 	}
 	
-	public int calcolaRendimentoUltimaSettimana() {
+	public int calcolaRendimento() {
 		Contatore c= new Contatore();
 		IOperazioneRistorante op= new CalcolaRendimento(c);
 		eseguiOperazione(op);
