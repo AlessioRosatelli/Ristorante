@@ -12,4 +12,7 @@ public class Contatore {
 		return valore;
 	}
 	
+	public void reset() {
+		this.valore=0;
+	}
 }
