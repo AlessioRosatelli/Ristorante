@@ -5,13 +5,14 @@ import java.util.LinkedList;
 import model.Ristorante;
 import model.TavoloAbs;
 
-public class CalcolaTavoliLiberiRisto implements IOperazioneRistorante {
+public class CalcolaTavoliLiberiRistorante implements IOperazioneRistorante {
 
 	private Contatore c;
 	
-	public CalcolaTavoliLiberiRisto(Contatore c) {
+	public CalcolaTavoliLiberiRistorante(Contatore c) {
 		this.c=c;
 	}
+	
 	@Override
 	public void applicaOperazione(Ristorante r) {
 		LinkedList<TavoloAbs> tavoli = r.getTavoli();

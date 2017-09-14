@@ -39,15 +39,15 @@ public class Inizializzazione {
 	public TavoloBase tavoloBase8 = ristorante.nuovoTavoloBase(1, stanza222);
 	public TavoloBase tavoloBase9 = ristorante.nuovoTavoloBase(1, stanza11);
 
-	public TavoloBase tavoloVip1 = ristorante.nuovoTavoloBase(1, stanza222);
-	public TavoloBase tavoloVip2 = ristorante.nuovoTavoloBase(1, stanza222);
-	public TavoloBase tavoloVip3 = ristorante.nuovoTavoloBase(1, stanza222);
-	public TavoloBase tavoloVip4 = ristorante.nuovoTavoloBase(1, stanza22);
-	public TavoloBase tavoloVip5 = ristorante.nuovoTavoloBase(1, stanza22);
-	public TavoloBase tavoloVip6 = ristorante.nuovoTavoloBase(1, stanza11);
-	public TavoloBase tavoloVip7 = ristorante.nuovoTavoloBase(1, stanza12);
-	public TavoloBase tavoloVip8 = ristorante.nuovoTavoloBase(1, stanza13);
-	public TavoloBase tavoloVip9 = ristorante.nuovoTavoloBase(1, stanza13);
+	public TavoloVip tavoloVip1 = ristorante.nuovoTavoloVip(1, stanza222);
+	public TavoloVip tavoloVip2 = ristorante.nuovoTavoloVip(1, stanza222);
+	public TavoloVip tavoloVip3 = ristorante.nuovoTavoloVip(1, stanza222);
+	public TavoloVip tavoloVip4 = ristorante.nuovoTavoloVip(1, stanza22);
+	public TavoloVip tavoloVip5 = ristorante.nuovoTavoloVip(1, stanza22);
+	public TavoloVip tavoloVip6 = ristorante.nuovoTavoloVip(1, stanza11);
+	public TavoloVip tavoloVip7 = ristorante.nuovoTavoloVip(1, stanza12);
+	public TavoloVip tavoloVip8 = ristorante.nuovoTavoloVip(1, stanza13);
+	public TavoloVip tavoloVip9 = ristorante.nuovoTavoloVip(1, stanza13);
 	
 	public Ordinazione ord1 = ristorante.nuovaOrdinazione(oggi, "prova", tavoloBase1);
 	public Ordinazione ord2 = ristorante.nuovaOrdinazione(oggi, "prova", tavoloBase2);
@@ -55,7 +55,7 @@ public class Inizializzazione {
 	public Ordinazione ord4 = ristorante.nuovaOrdinazione(oggi, "prova", tavoloBase4);
 	public Ordinazione ord5 = ristorante.nuovaOrdinazione(oggi, "prova", tavoloBase5);
 	public Ordinazione ord6 = ristorante.nuovaOrdinazione(treGiorniFa, "prova", tavoloBase6);
-	public Ordinazione ord7 = ristorante.nuovaOrdinazione(treGiorniFa, "prova", tavoloBase1);
+	public Ordinazione ord7 = ristorante.nuovaOrdinazione(treGiorniFa, "prova", tavoloBase7);
 	public Ordinazione ord8 = ristorante.nuovaOrdinazione(treGiorniFa, "prova", tavoloVip1);
 	public Ordinazione ord9 = ristorante.nuovaOrdinazione(treGiorniFa, "prova", tavoloVip1);
 	public Ordinazione ord10 = ristorante.nuovaOrdinazione(dieciGiorniFa, "prova", tavoloVip2);

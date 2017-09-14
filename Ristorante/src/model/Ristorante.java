@@ -12,7 +12,7 @@ public class Ristorante {
 	private long telefono;
 	private String email;
 	private String direttore;
-	private LinkedList<Area> listaAree;
+	private LinkedList<Area> listaAree = new LinkedList<Area>();
 	private LinkedList<Ordinazione> ordinazioni = new LinkedList<Ordinazione>();
 	private LinkedList<Cameriere> camerieri = new LinkedList<Cameriere>();
 	private LinkedList<IObsOrd > obsOrdinazioni = new LinkedList<IObsOrd>();
@@ -102,7 +102,7 @@ public class Ristorante {
 	
 	public int tavoliLiberiRistorante() {
 		Contatore c = new Contatore();
-		IOperazioneRistorante op = new CalcolaTavoliLiberiRisto(c);
+		IOperazioneRistorante op = new CalcolaTavoliLiberiRistorante(c);
 		eseguiOperazione(op);
 		return c.getValore();
 	}

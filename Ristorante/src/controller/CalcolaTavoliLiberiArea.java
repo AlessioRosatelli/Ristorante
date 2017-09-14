@@ -15,6 +15,7 @@ public class CalcolaTavoliLiberiArea implements IOperazioneRistorante {
 		this.c=c;
 		this.a=a;
 	}
+	
 	@Override
 	public void applicaOperazione(Ristorante r) {
 		LinkedList<TavoloAbs> tavoli = a.getTavoli();
