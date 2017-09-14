@@ -6,13 +6,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import model.Area;
-import model.Cameriere;
 import model.Ordinazione;
 import model.Stanza;
 import model.TavoloBase;
 import model.TavoloVip;
 
-public class RistoranteTest {
+public class TestRistorante {
 	
 	Inizializzazione init = new Inizializzazione();
 	
@@ -92,7 +91,7 @@ public class RistoranteTest {
 		assertEquals(init.stanza12.getTavoli().size(),2);
 		assertEquals(init.area12.getTavoli().size(),2);
 		assertEquals(init.area1.getTavoli().size(),11);
-		TavoloBase nuovo = init.ristorante.nuovoTavoloBase(1, init.stanza12);
+		init.ristorante.nuovoTavoloBase(1, init.stanza12);
 		assertEquals(init.ristorante.getTavoli().size(),19);
 		assertEquals(init.stanza12.getTavoli().size(),3);
 		assertEquals(init.area12.getTavoli().size(),3);
@@ -102,7 +101,7 @@ public class RistoranteTest {
 	@Test
 	public void testNuovoCameriere() {
 		assertEquals(init.ristorante.getListaCamerieri().size(), 1);
-		Cameriere nuovo = init.ristorante.nuovoCameriere("Ale", "Ros");
+		init.ristorante.nuovoCameriere("Ale", "Ros");
 		assertEquals(init.ristorante.getListaCamerieri().size(), 2);
 		assertEquals(init.ristorante.getListaCamerieri().getLast().getCognome(), "Ros");
 	}
@@ -110,7 +109,7 @@ public class RistoranteTest {
 	@Test
 	public void testOrdinazioniInCorso() {
 		assertEquals(init.ristorante.ordinazioniInCorso(),4);
-		Ordinazione nuova = init.ristorante.nuovaOrdinazione(init.oggi, "", init.tavoloBase1);
+		init.ristorante.nuovaOrdinazione(init.oggi, "", init.tavoloBase1);
 		assertEquals(init.ristorante.ordinazioniInCorso(),5);
 		init.ristorante.concludiOrdinazione(init.ord1);
 		assertEquals(init.ristorante.ordinazioniInCorso(),4);
@@ -138,11 +137,11 @@ public class RistoranteTest {
 	@Test
 	public void testCalcolaRendimento() {
 		assertEquals(init.ristorante.calcolaRendimento(), 18);
-		Ordinazione nuova = init.ristorante.nuovaOrdinazione(init.oggi, "", init.tavoloBase8);
+		init.ristorante.nuovaOrdinazione(init.oggi, "", init.tavoloBase8);
 		assertEquals(init.ristorante.calcolaRendimento(), 19);
-		Ordinazione nuova2 = init.ristorante.nuovaOrdinazione(init.oggi, "", init.tavoloVip8);
+		init.ristorante.nuovaOrdinazione(init.oggi, "", init.tavoloVip8);
 		assertEquals(init.ristorante.calcolaRendimento(), 21);
-		Ordinazione nuova3 = init.ristorante.nuovaOrdinazione(init.dieciGiorniFa, "", init.tavoloVip8);
+		init.ristorante.nuovaOrdinazione(init.dieciGiorniFa, "", init.tavoloVip8);
 		assertEquals(init.ristorante.calcolaRendimento(), 23);
 	}
 
