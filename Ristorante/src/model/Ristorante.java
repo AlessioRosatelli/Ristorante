@@ -102,7 +102,7 @@ public class Ristorante {
 	
 	public int tavoliLiberiRistorante() {
 		Contatore c = new Contatore();
-		IOperazioneRistorante op = new CalcolaTavoliLiberiRisto(c);
+		IOperazioneRistorante op = new CalcolaTavoliLiberiRistorante(c);
 		eseguiOperazione(op);
 		return c.getValore();
 	}
