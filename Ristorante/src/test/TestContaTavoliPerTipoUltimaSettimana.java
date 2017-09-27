@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import controller.*;
 
-public class TestPreferenzaVip {
+public class TestContaTavoliPerTipoUltimaSettimana {
 
 	private Inizializzazione init = new Inizializzazione();
 	
@@ -20,7 +20,7 @@ public class TestPreferenzaVip {
 	public void testApplicaOperazione() {
 		Contatore base = new Contatore();
 		Contatore vip = new Contatore();
-		PreferenzaVip pv = new PreferenzaVip(base, vip);
+		ContaTavoliPerTipoUltimaSettimana pv = new ContaTavoliPerTipoUltimaSettimana(base, vip);
 		pv.applicaOperazione(init.ristorante);
 		
 		init.ristorante.nuovaOrdinazione(init.oggi, "", init.tavoloVip1);
