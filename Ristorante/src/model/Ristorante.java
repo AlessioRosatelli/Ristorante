@@ -117,7 +117,7 @@ public class Ristorante {
 	public boolean preferenzaVip() {
 		Contatore base =  new Contatore();
 		Contatore vip = new Contatore();
-		IOperazioneRistorante op = new PreferenzaVip(base, vip);
+		IOperazioneRistorante op = new ContaTavoliPerTipoUltimaSettimana(base, vip);
 		eseguiOperazione(op);
 		return vip.getValore()>=base.getValore();
 	}

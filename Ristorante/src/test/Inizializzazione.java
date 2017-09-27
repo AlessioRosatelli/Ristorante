@@ -3,14 +3,15 @@ package test;
 import model.*;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Inizializzazione {
 
 	public Ristorante ristorante = new Ristorante("RisotranteProva", "Prova", 0755555, "prova@gmail.com", "Prova della Prova");
 	
 	public Date oggi = new Date( new Date().getTime() - 1);
-	public Date treGiorniFa = new Date( oggi.getTime() - 3*24*3600 );
-	public Date dieciGiorniFa = new Date( oggi.getTime() - 10*24*3600 );
+	public Date treGiorniFa = new Date( oggi.getTime() - TimeUnit.DAYS.toMillis(3) );
+	public Date dieciGiorniFa = new Date( oggi.getTime() - TimeUnit.DAYS.toMillis(10) );
 	
 	public Area area1 = ristorante.nuovaArea("area1");
 	public Area area2 = ristorante.nuovaArea("area2");
