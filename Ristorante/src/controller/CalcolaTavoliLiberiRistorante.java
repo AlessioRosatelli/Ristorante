@@ -1,9 +1,9 @@
 package controller;
 
-import java.util.LinkedList;
 
+
+import model.Area;
 import model.Ristorante;
-import model.TavoloAbs;
 
 public class CalcolaTavoliLiberiRistorante implements IOperazioneRistorante {
 
@@ -15,10 +15,10 @@ public class CalcolaTavoliLiberiRistorante implements IOperazioneRistorante {
 	
 	@Override
 	public void applicaOperazione(Ristorante r) {
-		LinkedList<TavoloAbs> tavoli = r.getTavoli();
-		for (TavoloAbs t:tavoli)
-			if(!t.isOccupato())
-				c.incrementa(1);
+		for (Area a : r.getListaAree()) {
+			IOperazioneRistorante op = new CalcolaTavoliLiberiArea(this.c, a);
+			op.applicaOperazione(r);
+		}		
 	}
 
 }
